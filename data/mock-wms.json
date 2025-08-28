@@ -1,0 +1,23 @@
+{
+    "provider": "mock-wms",
+    "items": [
+        {
+            "sku": "ABC-1234",
+            "quantity": 36,
+            "location": "Warehouse-A",
+            "lastUpdated": "2025-08-01T13:40:00Z"
+        },
+        {
+            "sku": "XYZ-5678",
+            "quantity": 8,
+            "location": "Warehouse-B",
+            "lastUpdated": "2025-08-01T13:41:00Z"
+        },
+        {
+            "sku": "QWE-0001",
+            "quantity": 100,
+            "location": "Warehouse-C",
+            "lastUpdated": "2025-08-01T13:42:00Z"
+        }
+    ]
+}

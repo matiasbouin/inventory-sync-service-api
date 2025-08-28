@@ -1,0 +1,29 @@
+version: '3.9'
+services:
+db:
+image: postgres:16
+environment:
+POSTGRES_USER: inventory
+POSTGRES_PASSWORD: inventory
+POSTGRES_DB: inventory
+ports:
+- '5432:5432'
+volumes:
+- pgdata:/var/lib/postgresql/data
+api:
+build: .
+environment:
+DATABASE_URL: postgresql://inventory:inventory@db:5432/inventory?schema=public
+NODE_ENV: development
+PORT: 3000
+WMS_FAIL_RATE: '0'
+depends_on:
+- db
+ports:
+- '3000:3000'
+volumes:
+- .:/usr/src/app
+- /usr/src/app/node_modules
+command: sh -c "npm i && npx prisma generate && npm run dev"
+volumes:
+pgdata:

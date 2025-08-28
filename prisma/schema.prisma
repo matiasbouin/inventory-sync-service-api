@@ -1,0 +1,29 @@
+generator client {
+provider = "prisma-client-js"
+}
+
+
+datasource db {
+provider = "postgresql"
+url = env("DATABASE_URL")
+}
+
+
+model InventoryItem {
+sku String @id
+quantity Int
+location String
+lastUpdated DateTime @db.Timestamp(6)
+}
+
+
+model SyncLog {
+id String @id @default(cuid())
+provider String
+skuList String[]
+synced Int
+errors Json
+status String
+startedAt DateTime @default(now())
+finishedAt DateTime
+}
